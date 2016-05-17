@@ -385,7 +385,7 @@
 
 \usepackage{CJK}
 \usepackage[utf8]{inputenc}
-
+\parindent=19pt
 
 \begin{document}
 
@@ -521,10 +521,9 @@ Funds}% <-this % stops a space
 
  因此传感器网络需要的协议，是特定于应用程序的，以数据为中心的，并且能够聚集数据和优化能源消耗。一个理想的传感器网络应具有以下附加功能:
  
- 在传感器网络中通常采用基于属性的寻址。属性地址是由一系列对某些指定的物理参数进行检测的属性值组成。
+ 在传感器网络中通常采用基于属性的寻址。属性地址是由一系列对某些指定的物理参数进行检测的属性值组成。例如，一个属性的地址可能是(温度 \textgreater\ 100°F，位置 = ??)。因此，所有的节点感知温度大于100°F应该返回它们的位置。
 
-\subsection{Subsection Heading Here}
-\blindtext
+位置感知是另一个重要问题。由于大多数数据收集是基于位置的，节点需要在需要时知道自己的位置。
 
 % needed in second column of first page if using \IEEEpubid
 %\IEEEpubidadjcol
@@ -613,13 +612,28 @@ Funds}% <-this % stops a space
 
 
 
-\section{Conclusion}
-\blindtext
+\section{\textbf{相关工作}}
+
+
+在这一节中，我们简要介绍一些相关的研究工作。
+
+Intanagonwiwat等人，[7]引入了一种数据传播范式称为传感器网络定向扩散。它是一个以数据为中心的范例，在这项工作中应用程序查询的传播和处理已被证明。
 
 
 
+Estrin等人，[3]使用分层聚类方法对局部行为的重点，所需要的非对称通信和传感器网络中的能量进行了讨论。
 
 
+一种基于簇的路由协议(CBRP)已经由Jiang等人，在[8]的移动自组织网络中提出。它使用分布式的方式将网络节点分成若干个重叠的或不相交的双跳集群。然而，这个协议不适合这种能量受限的传感器网络中使用。
+
+
+
+Heinzelman等人，[5]介绍了层次聚类算法的传感器网络，称为LEACH。我们在6.1节更详细地讨论这个问题。
+
+
+\section{\textbf{写作动机\\ }}
+
+在无线传感器网络领域的研究工作中，我们看到对于目标应用程序的临界时间并没有特别的关注。大多数当前的协议假定传感器网络周期性地从它的环境收集数据或响应一个特定的查询以获得数据。我们觉得有必要引入一种对传感数据属性改变立即响应的网络。我们还认为，传感器网络应该向最终用户提供对能源效率，精度和动态响应时间综合调控的功能。因此在我们的研究中，我们一直专注于开发一个可以满足这些要求的通信协议。
 % if have a single appendix:
 %\appendix[Proof of the Zonklar Equations]
 % or
@@ -634,6 +648,19 @@ Funds}% <-this % stops a space
 % starts a section numbered zero.)
 %
 
+\section{\textbf{传感器网络分类\\ \\ }}
+
+在这里，我们提出了一种简单的基于传感器运作模式和目标应用程序类型的传感器网络分类。
+
+\subsection{\textbf{主动式网络}}
+
+网络中的节点周期性地对传感器和传输器进行切换，分别对环境数采集和对数据的进行传输。因此，该方法会定时对相关参数设置一个监测。它们非常适合需要定期监测数据的应用程序。
+
+\subsection{\textbf{反应式网络}}
+
+在这个方案中，节点会对突然变化的一个感测的属性进行响应。因此，它们非常适合于对时间准确性要求较高的应用。
+
+\section{\textbf{传感器网络模型\\ \\ }}
 
 \appendices
 \section{Proof of the First Zonklar Equation}
@@ -679,10 +706,20 @@ The authors would like to thank...
 \begin{thebibliography}{1}
 
 \bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+J. Broch, D. Maltz, D. Johnson, Y. Hu, and J. Jetcheva.
+“A Performance Comparison of Multi-Hop Wireless Ad
+Hoc Network Routing Protocols”. In Proceedings of the
+Fourth Annual ACM/IEEE International Conference on Mobile
+Computing and Networking(MOBICOM), ACM, October 1998.
+
+\bibitem{IEEEhowto:kopka}
+J. Elson and D. Estrin. “An Address-Free Architecture
+for Dynamic Sensor Networks”. Technical Report 00-724,
+Computer Science Department, USC, January 2000.
 
 \end{thebibliography}
+
+
 
 % biography section
 % 
