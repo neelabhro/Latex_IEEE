@@ -387,8 +387,16 @@
 \usepackage[utf8]{inputenc}
 \parindent=19pt
 
+\renewcommand\thesection{\arabic{section}}
+
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+
 \begin{document}
 
+
+\renewcommand\thesection{\arabic{section}}
+
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
@@ -652,6 +660,7 @@ Heinzelman等人，[5]介绍了层次聚类算法的传感器网络，称为LEAC
 
 在这里，我们提出了一种简单的基于传感器运作模式和目标应用程序类型的传感器网络分类。
 
+
 \subsection{\textbf{主动式网络}}
 
 网络中的节点周期性地对传感器和传输器进行切换，分别对环境数采集和对数据的进行传输。因此，该方法会定时对相关参数设置一个监测。它们非常适合需要定期监测数据的应用程序。
@@ -662,15 +671,152 @@ Heinzelman等人，[5]介绍了层次聚类算法的传感器网络，称为LEAC
 
 \section{\textbf{传感器网络模型\\ \\ }}
 
-\appendices
-\section{Proof of the First Zonklar Equation}
-Some text for the appendix.
+我们现在考虑一种适合这些传感器网络的模型。它是基于Heinzelman等人[5]开发的模型。它由一个基站(BS)，和若干远离基站的传感器节点组成，终端用户可以通过这个传感器网络获得数据。网络中的所有节点分布都是均匀的，并且最初具有相同的初始能量。同时基站有一个固定的电源供应器，因此没有能量的限制。它可以通过高功率信号向所有节点通信。因此不需要从基站路由到任何特定节点。然而，这些节点由于自身功率的约束，不能总是立刻直接回复基站，导致出现非对称通信现象。
 
-% use section* for acknowledgement
-\section*{Acknowledgment}
+这种模型采用了分层聚类方案。考虑图1所示的部分网络结构。每个集群都有一个簇头，它收集来自其群集成员的数据，将其聚集并发送给基站或上层簇头。例如，节点1.1.1，1.1.2，1.1.3，1.1.4，1.1.5和1.1形成一个集群，其中节点1.1作为簇头。类似地还有其他的簇头，如1.2，1等。这些簇头反过来组成了一个以节点1为簇头集群。因此，节点1也是一个二级簇头。这种模式重复形成一个具有层次的集群且最上层的集群节点直接向基站通信。基站成为了这个层次的根，并且监督整个网络。这种结构的主要特点是：
+
+\begin{itemize}
+  \item 所有节点只需要直接发送数据到它们的簇头，从而节省能量。
+  \item 只有簇头需要进行额外的数据的计算。所以能量得到保留。 
+\end{itemize}
+\noindent
+\includegraphics[height=250, width=250]{1.eps}
+
+\begin{itemize}
+  \item 在层次结构中的簇头需要在相对较大的距离上传输数据。结合它们执行额外的计算，最终消耗能源的速度比要其他节点更快。为了尽量将计算任务分散，所有的节点以一定的时间间隔，集群周期T轮流充当簇头。
+
+\end{itemize}
+
+\section{\textbf{传感器网络协议\\ \\ }}
+
+在第5节中描述的传感器网络模型广泛使用了下面将要讨论的传感器网络协议。
+
+\subsection{\textbf{主动式网络协议}}
+
+在这一节中，我们讨论在主动网络协议中的功能和特性。
+\\
+
+\textbf{功能}
+
+\
+
+对于每个簇的变化时间，一旦簇头决定，簇头广播以下参数：
+
+Report Time(TR):这是发送节点收到成功响应的时间间隔。
+
+Attributes(A): 用户想要获取的数据的一组物理参数。
+
+在每段响应时间内，群集成员监测属性中指定的参数并将数据发送到簇头。这种情况下簇头可能聚集这些数据，并将其发送到基站或更高级别的簇头。这确保用户拥有网络覆盖的整个区域的完整视图。 
 
 
-The authors would like to thank...
+\noindent
+\includegraphics[height=100, width=250]{2.eps}
+
+\textbf{重要特征}
+\\*
+
+这个方案的重要特点如下：
+\\
+\begin{enumerate}
+ \setcounter{enumi}
+ \item 由于节点在除了响应时间的其他所有时间内均关闭其传感器和数据传输器，所以其能量消耗很少。
+ \item 在每一个集群改变时间内，TR和A通过重新传输进行刷新，因此它们是可以改变的。
+ 
+\end{enumerate}
+
+然而，这种方案有一个重要的缺点。由于数据被检测的周期性，可能时间同步数据在响应时间后到达用户端。因此，该方案可能不是非常适合于数据时间同步要求较高的传感器应用。
+
+\
+
+\textbf{LEACH}
+
+\
+
+LEACH (低能量自适应层次聚类) 是一种在[5]中提出的协议簇。LEACH是一个很好的类主动式网络协议，但是有一些小不同。
+
+一旦簇形成，簇头广播TDMA调度命令使得群成员可以开始发送数据。完成这个调度所需的总时间称为帧时间TF。簇中的每个节点在发送数据到簇头的帧时间内都有其自己的时隙。当调度表中的最后一个节点已发送数据后，该调度表将刷新重复进行。
+
+先前讨论的响应时间相当于LEACH的帧时间。帧时间不是由簇头广播，而是来自TDMA时间调度表。然而，它并不由用户控制。此外，该属性是预先确定的，并没有在中间改变。
+
+\
+
+\textbf{应用实例}
+
+\
+
+这个网络可以用来检测机械故障和对其进行诊断。它也可以用来在一个特定的地区收集温度变化数据。
+
+\subsection{\textbf{反应式网络协议：TEEN}}
+
+在这一节中，我们提出了一个新的网络协议称为TEEN协议(阈值敏感的能量高效传感器网络协议)。据我们所知，它是第一个针对反应式网络开发的网络协议。
+
+\
+
+\textbf{功能}
+
+\
+
+
+
+在这个方案中，在每个簇的变化时间内，除了属性，簇头还会将以下内容广播到它的成员：
+
+\
+
+硬门限(HT)：这是检测到属性数据的阈值。它是一个绝对的值，如果节点检测的数据值超过它，那么必须打开数据传输器，并向簇头节点发送数据。
+
+\
+
+软门限(ST)：这是检测数据属性值的一种小的变化，会触发节点打开它的数据传输器并开始传输。
+
+\
+
+节点持续地检测所处环境的数据。属性集第一次检测到一个参数达到它的硬门限时，该节点打开它的数据传输器并发送的检测到的数据。检测到的值存储在节点的一个内部变量中，称为检测值(SV)。节点将在当前集群周期内发送数据，只有在以下条件均成立时：
+
+\begin{enumerate}
+ \setcounter{enumi}
+ \item 检测到当前的属性值大于硬门限。
+ \item 所检测的属性值与SV的值之差等于或大于软门限。
+ 
+\end{enumerate}
+
+\noindent
+当一个节点发送数据，SV设定等于监测属性的当前值。
+
+因此，硬门限试图通过让节点只能在其数据属性值在有效范围内时才能传输数据来减少网络内的通信压力。软门限进一步降低了传输的数量，通过消除所有的微小变化或没有变化的数据属性的传输。
+
+\noindent
+\includegraphics[height=100, width=250]{3.eps}
+
+\textbf{重要特征}
+\\*
+
+这个方案的主要特点如下：
+\\
+\begin{enumerate}
+ \setcounter{enumi}
+ \item 时间关键的数据几乎瞬间到达用户端。
+ \item 信息传输比数据监测消耗的能量要大得多。因此，尽管节点的不断地进行监测，在这个方案中的能量消耗可能会比主动式网络要小得多，因为数据传输并不经常进行。  \item 软门限可以是多样的，这取决于感测的属性和目标应用程序的主要关注点。
+ \item 一个较小的软门限，在增加能量消耗的同时，给出了一个更准确的网络视图。因此，用户可以权衡控制能量效率和精度。
+ \item 在每个簇的变化时间内，属性数据被会被重新广播，用户按照需求可以改变它们。
+ \end{enumerate}
+
+\
+
+此方案的主要缺点是，如果没有达到阈值，节点间将永远不会进行通信，用户将不会得到任何来自网络的数据，即使所有节点失效，用户也根本不会知道。因此，该方案是不适合于用户需要在常规的基础上得到数据的应用程序。这个方案另一个可能的问题是，实际的实现时要确保在集群中没有碰撞。TDMA的节点调度可以避免这个问题。然而，这将引入一个延迟时间对于响应时间关键数据。CDMA是这个问题的另一种可能的解决方案。
+
+\
+
+\textbf{应用实例}
+
+\
+
+该协议是最适合于时间关键的应用，如入侵检测，爆炸检测等。
+
+\section{\textbf{性能评估}}
+
+\subsection{\textbf{模拟}}
+
+为了对我们的协议的性能进行评估，我们已经在NS-2模拟器[10]上实现了LEACH[4]协议的扩展。我们进行模拟的目标如下：
 
 
 % Can use something like this to put references on a page
@@ -703,6 +849,7 @@ The authors would like to thank...
 % <OR> manually copy in the resultant .bbl file
 % set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
+
 \begin{thebibliography}{1}
 
 \bibitem{IEEEhowto:kopka}
@@ -716,6 +863,39 @@ Computing and Networking(MOBICOM), ACM, October 1998.
 J. Elson and D. Estrin. “An Address-Free Architecture
 for Dynamic Sensor Networks”. Technical Report 00-724,
 Computer Science Department, USC, January 2000.
+
+\bibitem{IEEEhowto:kopka}
+D. Estrin, R. Govindan, J. Heidemann, and S. Kumar. “Next
+Century Challenges: Scalable Coordination inWireless Networks”.
+In Proceedings of the 5th Annual ACM/IEEE International
+Conference on Mobile Computing and Networking(
+MOBICOM), pages 263–270, 1999.
+
+\bibitem{IEEEhowto:kopka}
+W. Heinzelman, A. Chandrakasan, and H. Balakrishnan.
+“uAMPS ns Code Extensions”. http://wwwmtl.mit.edu/research/icsystems/uamps/ leach.
+
+\bibitem{IEEEhowto:kopka}
+W. Heinzelman, A. Chandrakasan, and H. Balakrishnan. “Energy-Efficient Communication Protocols for Wireless
+Microsensor Networks”. In Proceedings of Hawaiian International
+Conference on Systems Science, January 2000.
+
+\bibitem{IEEEhowto:kopka}
+W. B. Heinzelman. “Application-Specific Protocol Architectures
+for Wireless Networks”. PhD thesis, Massachusetts
+Institute of Technology, June 2000.
+
+\bibitem{IEEEhowto:kopka}
+C. Intanagonwiwat, R. Govindan, and D. Estrin. “Directed
+Diffusion: A Scalable and Robust Communication
+Paradigm for Sensor Networks ”. In Proceedings of the
+6th Annual ACM/IEEE International Conference on Mobile
+Computing and Networking(MOBICOM), pages 56–67, August
+2000.
+
+\bibitem{IEEEhowto:kopka}
+M. Jiang, J. Li, and Y. C. Tay. “Cluster Based Routing Protocol”.
+Internet Draft, 1999.
 
 \end{thebibliography}
 
@@ -731,10 +911,6 @@ Computer Science Department, USC, January 2000.
 % simpler here.)
 %\begin{biography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
 % or if you just want to reserve a space for a photo:
-
-\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{picture}}]{John Doe}
-\blindtext
-\end{IEEEbiography}
 
 % You can push biographies down or up by placing
 % a \vfill before or after them. The appropriate
