@@ -1,125 +1,8 @@
-%
 
-%% bare_jrnl.tex
-%% V1.3
-%% 2007/01/11
-%% by Michael Shell
-%% see http://www.michaelshell.org/
-%% for current contact information.
-%%
-%% This is a skeleton file demonstrating the use of IEEEtran.cls
-%% (requires IEEEtran.cls version 1.7 or later) with an IEEE journal paper.
-%%
-%% Support sites:
-%% http://www.michaelshell.org/tex/ieeetran/
-%% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
-%% and
-%% http://www.ieee.org/
-
-
-
-% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
-% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
-% *** with production work. IEEE's font choices can trigger bugs that do  ***
-% *** not appear when using other class files.                            ***
-% The testflow support page is at:
-% http://www.michaelshell.org/tex/testflow/
-
-
-%%*************************************************************************
-%% Legal Notice:
-%% This code is offered as-is without any warranty either expressed or
-%% implied; without even the implied warranty of MERCHANTABILITY or
-%% FITNESS FOR A PARTICULAR PURPOSE! 
-%% User assumes all risk.
-%% In no event shall IEEE or any contributor to this code be liable for
-%% any damages or losses, including, but not limited to, incidental,
-%% consequential, or any other damages, resulting from the use or misuse
-%% of any information contained here.
-%%
-%% All comments are the opinions of their respective authors and are not
-%% necessarily endorsed by the IEEE.
-%%
-%% This work is distributed under the LaTeX Project Public License (LPPL)
-%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
-%% distributed and modified. A copy of the LPPL, version 1.3, is included
-%% in the base LaTeX documentation of all distributions of LaTeX released
-%% 2003/12/01 or later.
-%% Retain all contribution notices and credits.
-%% ** Modified files should be clearly indicated as such, including  **
-%% ** renaming them and changing author support contact information. **
-%%
-%% File list of work: IEEEtran.cls, IEEEtran_HOWTO.pdf, bare_adv.tex,
-%%                    bare_conf.tex, bare_jrnl.tex, bare_jrnl_compsoc.tex
-%%*************************************************************************
-
-% Note that the a4paper option is mainly intended so that authors in
-% countries using A4 can easily print to A4 and see how their papers will
-% look in print - the typesetting of the document will not typically be
-% affected with changes in paper size (but the bottom and side margins will).
-% Use the testflow package mentioned above to verify correct handling of
-% both paper sizes by the user's LaTeX system.
-%
-% Also note that the "draftcls" or "draftclsnofoot", not "draft", option
-% should be used if it is desired that the figures are to be displayed in
-% draft mode.
-%
 \documentclass[journal]{IEEEtran}
 \usepackage{blindtext}
 \usepackage{graphicx}
 
-% Some very useful LaTeX packages include:
-% (uncomment the ones you want to load)
-
-
-% *** MISC UTILITY PACKAGES ***
-%
-%\usepackage{ifpdf}
-% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
-% compilation based on whether the output is pdf or dvi.
-% usage:
-% \ifpdf
-%   % pdf code
-% \else
-%   % dvi code
-% \fi
-% The latest version of ifpdf.sty can be obtained from:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
-% Also, note that IEEEtran.cls V1.7 and later provides a builtin
-% \ifCLASSINFOpdf conditional that works the same way.
-% When switching from latex to pdflatex and vice-versa, the compiler may
-% have to be run twice to clear warning/error messages.
-
-
-
-
-
-
-% *** CITATION PACKAGES ***
-%
-%\usepackage{cite}
-% cite.sty was written by Donald Arseneau
-% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
-% \cite{} output to follow that of IEEE. Loading the cite package will
-% result in citation numbers being automatically sorted and properly
-% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
-% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
-% \cite will automatically add leading space, if needed. Use cite.sty's
-% noadjust option (cite.sty V3.8 and later) if you want to turn this off.
-% cite.sty is already installed on most LaTeX systems. Be sure and use
-% version 4.0 (2003-05-27) and later if using hyperref.sty. cite.sty does
-% not currently provide for hyperlinked citations.
-% The latest version can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
-% The documentation is contained in the cite.sty file itself.
-
-
-
-
-
-
-% *** GRAPHICS RELATED PACKAGES ***
-%
 \ifCLASSINFOpdf
   % \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
@@ -138,249 +21,6 @@
   % every instance of \includegraphics
   % \DeclareGraphicsExtensions{.eps}
 \fi
-% graphicx was written by David Carlisle and Sebastian Rahtz. It is
-% required if you want graphics, photos, etc. graphicx.sty is already
-% installed on most LaTeX systems. The latest version and documentation can
-% be obtained at: 
-% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
-% Another good source of documentation is "Using Imported Graphics in
-% LaTeX2e" by Keith Reckdahl which can be found as epslatex.ps or
-% epslatex.pdf at: http://www.ctan.org/tex-archive/info/
-%
-% latex, and pdflatex in dvi mode, support graphics in encapsulated
-% postscript (.eps) format. pdflatex in pdf mode supports graphics
-% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
-% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
-% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
-% which can result in "jaggedy"/blurry rendering of lines and letters as
-% well as large increases in file sizes.
-%
-% You can find documentation about the pdfTeX application at:
-% http://www.tug.org/applications/pdftex
-
-
-
-
-
-% *** MATH PACKAGES ***
-%
-%\usepackage[cmex10]{amsmath}
-% A popular package from the American Mathematical Society that provides
-% many useful and powerful commands for dealing with mathematics. If using
-% it, be sure to load this package with the cmex10 option to ensure that
-% only type 1 fonts will utilized at all point sizes. Without this option,
-% it is possible that some math symbols, particularly those within
-% footnotes, will be rendered in bitmap form which will result in a
-% document that can not be IEEE Xplore compliant!
-%
-% Also, note that the amsmath package sets \interdisplaylinepenalty to 10000
-% thus preventing page breaks from occurring within multiline equations. Use:
-%\interdisplaylinepenalty=2500
-% after loading amsmath to restore such page breaks as IEEEtran.cls normally
-% does. amsmath.sty is already installed on most LaTeX systems. The latest
-% version and documentation can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/required/amslatex/math/
-
-
-
-
-
-% *** SPECIALIZED LIST PACKAGES ***
-%
-%\usepackage{algorithmic}
-% algorithmic.sty was written by Peter Williams and Rogerio Brito.
-% This package provides an algorithmic environment fo describing algorithms.
-% You can use the algorithmic environment in-text or within a figure
-% environment to provide for a floating algorithm. Do NOT use the algorithm
-% floating environment provided by algorithm.sty (by the same authors) or
-% algorithm2e.sty (by Christophe Fiorio) as IEEE does not use dedicated
-% algorithm float types and packages that provide these will not provide
-% correct IEEE style captions. The latest version and documentation of
-% algorithmic.sty can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithms/
-% There is also a support site at:
-% http://algorithms.berlios.de/index.html
-% Also of interest may be the (relatively newer and more customizable)
-% algorithmicx.sty package by Szasz Janos:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/
-
-
-
-
-% *** ALIGNMENT PACKAGES ***
-%
-%\usepackage{array}
-% Frank Mittelbach's and David Carlisle's array.sty patches and improves
-% the standard LaTeX2e array and tabular environments to provide better
-% appearance and additional user controls. As the default LaTeX2e table
-% generation code is lacking to the point of almost being broken with
-% respect to the quality of the end results, all users are strongly
-% advised to use an enhanced (at the very least that provided by array.sty)
-% set of table tools. array.sty is already installed on most systems. The
-% latest version and documentation can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/required/tools/
-
-
-%\usepackage{mdwmath}
-%\usepackage{mdwtab}
-% Also highly recommended is Mark Wooding's extremely powerful MDW tools,
-% especially mdwmath.sty and mdwtab.sty which are used to format equations
-% and tables, respectively. The MDWtools set is already installed on most
-% LaTeX systems. The lastest version and documentation is available at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/mdwtools/
-
-
-% IEEEtran contains the IEEEeqnarray family of commands that can be used to
-% generate multiline equations as well as matrices, tables, etc., of high
-% quality.
-
-
-%\usepackage{eqparbox}
-% Also of notable interest is Scott Pakin's eqparbox package for creating
-% (automatically sized) equal width boxes - aka "natural width parboxes".
-% Available at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/eqparbox/
-
-
-
-
-
-% *** SUBFIGURE PACKAGES ***
-%\usepackage[tight,footnotesize]{subfigure}
-% subfigure.sty was written by Steven Douglas Cochran. This package makes it
-% easy to put subfigures in your figures. e.g., "Figure 1a and 1b". For IEEE
-% work, it is a good idea to load it with the tight package option to reduce
-% the amount of white space around the subfigures. subfigure.sty is already
-% installed on most LaTeX systems. The latest version and documentation can
-% be obtained at:
-% http://www.ctan.org/tex-archive/obsolete/macros/latex/contrib/subfigure/
-% subfigure.sty has been superceeded by subfig.sty.
-
-
-
-%\usepackage[caption=false]{caption}
-%\usepackage[font=footnotesize]{subfig}
-% subfig.sty, also written by Steven Douglas Cochran, is the modern
-% replacement for subfigure.sty. However, subfig.sty requires and
-% automatically loads Axel Sommerfeldt's caption.sty which will override
-% IEEEtran.cls handling of captions and this will result in nonIEEE style
-% figure/table captions. To prevent this problem, be sure and preload
-% caption.sty with its "caption=false" package option. This is will preserve
-% IEEEtran.cls handing of captions. Version 1.3 (2005/06/28) and later 
-% (recommended due to many improvements over 1.2) of subfig.sty supports
-% the caption=false option directly:
-%\usepackage[caption=false,font=footnotesize]{subfig}
-%
-% The latest version and documentation can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
-% The latest version and documentation of caption.sty can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/caption/
-
-
-
-
-% *** FLOAT PACKAGES ***
-%
-%\usepackage{fixltx2e}
-% fixltx2e, the successor to the earlier fix2col.sty, was written by
-% Frank Mittelbach and David Carlisle. This package corrects a few problems
-% in the LaTeX2e kernel, the most notable of which is that in current
-% LaTeX2e releases, the ordering of single and double column floats is not
-% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
-% single column figure to be placed prior to an earlier double column
-% figure. The latest version and documentation can be found at:
-% http://www.ctan.org/tex-archive/macros/latex/base/
-
-
-
-%\usepackage{stfloats}
-% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
-% the ability to do double column floats at the bottom of the page as well
-% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
-% LaTeX2e). It also provides a command:
-%\fnbelowfloat
-% to enable the placement of footnotes below bottom floats (the standard
-% LaTeX2e kernel puts them above bottom floats). This is an invasive package
-% which rewrites many portions of the LaTeX2e float routines. It may not work
-% with other packages that modify the LaTeX2e float routines. The latest
-% version and documentation can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/sttools/
-% Documentation is contained in the stfloats.sty comments as well as in the
-% presfull.pdf file. Do not use the stfloats baselinefloat ability as IEEE
-% does not allow \baselineskip to stretch. Authors submitting work to the
-% IEEE should note that IEEE rarely uses double column equations and
-% that authors should try to avoid such use. Do not be tempted to use the
-% cuted.sty or midfloat.sty packages (also by Sigitas Tolusis) as IEEE does
-% not format its papers in such ways.
-
-
-%\ifCLASSOPTIONcaptionsoff
-%  \usepackage[nomarkers]{endfloat}
-% \let\MYoriglatexcaption\caption
-% \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
-%\fi
-% endfloat.sty was written by James Darrell McCauley and Jeff Goldberg.
-% This package may be useful when used in conjunction with IEEEtran.cls'
-% captionsoff option. Some IEEE journals/societies require that submissions
-% have lists of figures/tables at the end of the paper and that
-% figures/tables without any captions are placed on a page by themselves at
-% the end of the document. If needed, the draftcls IEEEtran class option or
-% \CLASSINPUTbaselinestretch interface can be used to increase the line
-% spacing as well. Be sure and use the nomarkers option of endfloat to
-% prevent endfloat from "marking" where the figures would have been placed
-% in the text. The two hack lines of code above are a slight modification of
-% that suggested by in the endfloat docs (section 8.3.1) to ensure that
-% the full captions always appear in the list of figures/tables - even if
-% the user used the short optional argument of \caption[]{}.
-% IEEE papers do not typically make use of \caption[]'s optional argument,
-% so this should not be an issue. A similar trick can be used to disable
-% captions of packages such as subfig.sty that lack options to turn off
-% the subcaptions:
-% For subfig.sty:
-% \let\MYorigsubfloat\subfloat
-% \renewcommand{\subfloat}[2][\relax]{\MYorigsubfloat[]{#2}}
-% For subfigure.sty:
-% \let\MYorigsubfigure\subfigure
-% \renewcommand{\subfigure}[2][\relax]{\MYorigsubfigure[]{#2}}
-% However, the above trick will not work if both optional arguments of
-% the \subfloat/subfig command are used. Furthermore, there needs to be a
-% description of each subfigure *somewhere* and endfloat does not add
-% subfigure captions to its list of figures. Thus, the best approach is to
-% avoid the use of subfigure captions (many IEEE journals avoid them anyway)
-% and instead reference/explain all the subfigures within the main caption.
-% The latest version of endfloat.sty and its documentation can obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/endfloat/
-%
-% The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
-% later in the document, say, to conditionally put the References on a 
-% page by themselves.
-
-
-
-
-
-% *** PDF, URL AND HYPERLINK PACKAGES ***
-%
-%\usepackage{url}
-% url.sty was written by Donald Arseneau. It provides better support for
-% handling and breaking URLs. url.sty is already installed on most LaTeX
-% systems. The latest version can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/misc/
-% Read the url.sty source comments for usage information. Basically,
-% \url{my_url_here}.
-
-
-
-
-
-% *** Do not adjust lengths that control margins, column widths, etc. ***
-% *** Do not use packages that alter fonts (such as pslatex).         ***
-% There should be no need to do such things with IEEEtran.cls V1.6 and later.
-% (Unless specifically asked to do so by the journal or conference you plan
-% to submit to, of course. )
-
-
-% correct bad hyphenation here
 
 
 \usepackage{CJK}
@@ -417,57 +57,14 @@
 \author{Arati Manjeshwar and Dharma P. Agrawal
 \\Center for Distributed and Mobile Computing, ECECS Department,
 \\University of Cincinnati, Cincinnati, OH 45221-0030
-\thanks{This work is supported by the Ohio Board of Regents’ Doctoral Enhancement
+\thanks{This work is supported by the Ohio Board of Regents’ Doctoral Enhancement
 Funds}% <-this % stops a space
 \thanks{}% <-this % stops 
 \thanks{}}
 
-% note the % following the last \IEEEmembership and also \thanks - 
-% these prevent an unwanted space from occurring between the last author name
-% and the end of the author line. i.e., if you had this:
-% 
-% \author{....lastname \thanks{...} \thanks{...} }
-%                     ^------------^------------^----Do not want these spaces!
-%
-% a space would be appended to the last name and could cause every name on that
-% line to be shifted left slightly. This is one of those "LaTeX things". For
-% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
-% "AB" then you have to do: "\textbf{A}\textbf{B}"
-% \thanks is no different in this regard, so shield the last } of each \thanks
-% that ends a line with a % and do not let a space in before the next \thanks.
-% Spaces after \IEEEmembership other than the last one are OK (and needed) as
-% you are supposed to have spaces between the names. For what it is worth,
-% this is a minor point as most people would not even notice if the said evil
-% space somehow managed to creep in.
-
-
-
 % The paper headers
 \markboth{Journal of \LaTeX\ Class Files,~Vol.~6, No.~1, January~2007}%
 {Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}
-% The only time the second header will appear is for the odd numbered pages
-% after the title page when using the twoside option.
-% 
-% *** Note that you probably will NOT want to include the author's ***
-% *** name in the headers of peer review papers.                   ***
-% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
-% you desire.
-
-
-
-
-% If you want to put a publisher's ID mark on the page you can do it like
-% this:
-%\IEEEpubid{0000--0000/00\$00.00~\copyright~2007 IEEE}
-% Remember, if you use this you must call \IEEEpubidadjcol in the second
-% column for its text to clear the IEEEpubid mark.
-
-
-
-% use for special paper notices
-%\IEEEspecialpapernotice{(Invited Paper)}
-
-
 
 
 % make the title area
@@ -477,28 +74,7 @@ Funds}% <-this % stops a space
 \begin{abstract}
 无线传感器网络，预计在不久的将来找到广泛的适用性和得到越来越多的部署。在本文中，我们提出了一个正式的分类的传感器网络，基于其运作模式，分为主动式网络与反应式网络。反应式网络，相对于被动收集数据的主动网络，可以对快速变化的相关参数进行响应。我们针对反应式网络引入了一个新的节能协议，TEEN(阈值敏感的高效无线传感网协议)。我们用一个简单的温度传感应用来评估我们协议的性能。在能源效率方面，我们已经观察到此协议优于现有的传统传感器网络协议。
 \end{abstract}
-% IEEEtran.cls defaults to using nonbold math in the Abstract.
-% This preserves the distinction between vectors and scalars. However,
-% if the journal you are submitting to favors bold math in the abstract,
-% then you can use LaTeX's standard command \boldmath at the very start
-% of the abstract to achieve this. Many IEEE journals frown on math
-% in the abstract anyway.
 
-% Note that keywords are not normally used for peerreview papers.
-
-
-
-
-
-
-% For peer review papers, you can put extra information on the cover
-% page as needed:
-% \ifCLASSOPTIONpeerreview
-% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
-% \fi
-%
-% For peerreview papers, this IEEEtran command inserts a page break and
-% creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
 
@@ -533,92 +109,6 @@ Funds}% <-this % stops a space
 
 位置感知是另一个重要问题。由于大多数数据收集是基于位置的，节点需要在需要时知道自己的位置。
 
-% needed in second column of first page if using \IEEEpubid
-%\IEEEpubidadjcol
-
-% An example of a floating figure using the graphicx package.
-% Note that \label must occur AFTER (or within) \caption.
-% For figures, \caption should occur after the \includegraphics.
-% Note that IEEEtran v1.7 and later has special internal code that
-% is designed to preserve the operation of \label within \caption
-% even when the captionsoff option is in effect. However, because
-% of issues like this, it may be the safest practice to put all your
-% \label just after \caption rather than within \caption{}.
-%
-% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
-% option should be used if it is desired that the figures are to be
-% displayed while in draft mode.
-%
-%\begin{figure}[!t]
-%\centering
-%\includegraphics[width=2.5in]{myfigure}
-% where an .eps filename suffix will be assumed under latex, 
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-%\caption{Simulation Results}
-%\label{fig_sim}
-%\end{figure}
-
-% Note that IEEE typically puts floats only at the top, even when this
-% results in a large percentage of a column being occupied by floats.
-
-
-% An example of a double column floating figure using two subfigures.
-% (The subfig.sty package must be loaded for this to work.)
-% The subfigure \label commands are set within each subfloat command, the
-% \label for the overall figure must come after \caption.
-% \hfil must be used as a separator to get equal spacing.
-% The subfigure.sty package works much the same way, except \subfigure is
-% used instead of \subfloat.
-%
-%\begin{figure*}[!t]
-%\centerline{\subfloat[Case I]\includegraphics[width=2.5in]{subfigcase1}%
-%\label{fig_first_case}}
-%\hfil
-%\subfloat[Case II]{\includegraphics[width=2.5in]{subfigcase2}%
-%\label{fig_second_case}}}
-%\caption{Simulation results}
-%\label{fig_sim}
-%\end{figure*}
-%
-% Note that often IEEE papers with subfigures do not employ subfigure
-% captions (using the optional argument to \subfloat), but instead will
-% reference/describe all of them (a), (b), etc., within the main caption.
-
-
-% An example of a floating table. Note that, for IEEE style tables, the 
-% \caption command should come BEFORE the table. Table text will default to
-% \footnotesize as IEEE normally uses this smaller font for tables.
-% The \label must come after \caption as always.
-%
-%\begin{table}[!t]
-%% increase table row spacing, adjust to taste
-%\renewcommand{\arraystretch}{1.3}
-% if using array.sty, it might be a good idea to tweak the value of
-% \extrarowheight as needed to properly center the text within the cells
-%\caption{An Example of a Table}
-%\label{table_example}
-%\centering
-%% Some packages, such as MDW tools, offer better commands for making tables
-%% than the plain LaTeX2e tabular which is used here.
-%\begin{tabular}{|c||c|}
-%\hline
-%One & Two\\
-%\hline
-%Three & Four\\
-%\hline
-%\end{tabular}
-%\end{table}
-
-
-% Note that IEEE does not put floats in the very first column - or typically
-% anywhere on the first page for that matter. Also, in-text middle ("here")
-% positioning is not used. Most IEEE journals use top floats exclusively.
-% Note that, LaTeX2e, unlike IEEE journals, places footnotes above bottom
-% floats. This can be corrected via the \fnbelowfloat command of the
-% stfloats package.
-
-
 
 \section{\textbf{相关工作}}
 
@@ -628,13 +118,9 @@ Funds}% <-this % stops a space
 Intanagonwiwat等人，[7]引入了一种数据传播范式称为传感器网络定向扩散。它是一个以数据为中心的范例，在这项工作中应用程序查询的传播和处理已被证明。
 
 
-
 Estrin等人，[3]使用分层聚类方法对局部行为的重点，所需要的非对称通信和传感器网络中的能量进行了讨论。
 
-
 一种基于簇的路由协议(CBRP)已经由Jiang等人，在[8]的移动自组织网络中提出。它使用分布式的方式将网络节点分成若干个重叠的或不相交的双跳集群。然而，这个协议不适合这种能量受限的传感器网络中使用。
-
-
 
 Heinzelman等人，[5]介绍了层次聚类算法的传感器网络，称为LEACH。我们在6.1节更详细地讨论这个问题。
 
@@ -642,21 +128,9 @@ Heinzelman等人，[5]介绍了层次聚类算法的传感器网络，称为LEAC
 \section{\textbf{写作动机\\ }}
 
 在无线传感器网络领域的研究工作中，我们看到对于目标应用程序的临界时间并没有特别的关注。大多数当前的协议假定传感器网络周期性地从它的环境收集数据或响应一个特定的查询以获得数据。我们觉得有必要引入一种对传感数据属性改变立即响应的网络。我们还认为，传感器网络应该向最终用户提供对能源效率，精度和动态响应时间综合调控的功能。因此在我们的研究中，我们一直专注于开发一个可以满足这些要求的通信协议。
-% if have a single appendix:
-%\appendix[Proof of the Zonklar Equations]
-% or
-%\appendix  % for no appendix heading
-% do not use \section anymore after \appendix, only \section*
-% is possibly needed
 
-% use appendices with more than one appendix
-% then use \section to start each appendix
-% you must declare a \section before using any
-% \subsection or using \label (\appendices by itself
-% starts a section numbered zero.)
-%
 
-\section{\textbf{传感器网络分类\\ \\ }}
+\section{\textbf{传感器网络分类}}
 
 在这里，我们提出了一种简单的基于传感器运作模式和目标应用程序类型的传感器网络分类。
 
@@ -669,7 +143,7 @@ Heinzelman等人，[5]介绍了层次聚类算法的传感器网络，称为LEAC
 
 在这个方案中，节点会对突然变化的一个感测的属性进行响应。因此，它们非常适合于对时间准确性要求较高的应用。
 
-\section{\textbf{传感器网络模型\\ \\ }}
+\section{\textbf{传感器网络模型}}
 
 我们现在考虑一种适合这些传感器网络的模型。它是基于Heinzelman等人[5]开发的模型。它由一个基站(BS)，和若干远离基站的传感器节点组成，终端用户可以通过这个传感器网络获得数据。网络中的所有节点分布都是均匀的，并且最初具有相同的初始能量。同时基站有一个固定的电源供应器，因此没有能量的限制。它可以通过高功率信号向所有节点通信。因此不需要从基站路由到任何特定节点。然而，这些节点由于自身功率的约束，不能总是立刻直接回复基站，导致出现非对称通信现象。
 
@@ -680,7 +154,7 @@ Heinzelman等人，[5]介绍了层次聚类算法的传感器网络，称为LEAC
   \item 只有簇头需要进行额外的数据的计算。所以能量得到保留。 
 \end{itemize}
 \noindent
-\includegraphics[height=250, width=250]{1.eps}
+\includegraphics[height=250pt, width=250pt]{1.eps}
 
 \begin{itemize}
   \item 在层次结构中的簇头需要在相对较大的距离上传输数据。结合它们执行额外的计算，最终消耗能源的速度比要其他节点更快。为了尽量将计算任务分散，所有的节点以一定的时间间隔，集群周期T轮流充当簇头。
@@ -818,6 +292,73 @@ LEACH (低能量自适应层次聚类) 是一种在[5]中提出的协议簇。LE
 
 为了对我们的协议的性能进行评估，我们已经在NS-2模拟器[10]上实现了LEACH[4]协议的扩展。我们进行模拟的目标如下：
 
+\begin{itemize}
+  \item 在能量消耗和网络寿命的基础上对TEEN和LEACH协议的性能进行比较。
+  \item 研究软门限ST对TEEN协议的影响。  
+
+\end{itemize}
+
+模拟在一个拥有100个节点和一个固定的基站的网络上进行。节点随机放置在网络中。所有节点开始时拥有初始能量2J，集群以LEACH协议构造[5][6]。但是它们的无线传输模型被修改以包括空闲时间功耗(设置等于无线传输能量)和传感功耗(设置等于10\%的无线传输能量)。空闲时间的功耗在所有网络中被设置为相同的，其并不影响协议性能的比较。%的无线电电子能）。
+
+\
+
+\textbf{模拟环境}
+
+\
+
+在我们的实验中，我们模拟了不同地区的温度变化环境。传感器网络节点首先被随机放置在100x100单位的边界地区。网络覆盖的实际区域分为四个象限。每个象限之后在模拟的过程中每5秒被随机分配一个在0°F 到 200°F之间的的随机温度。我们观察到，大多数集群很好地分布到四个象限。
+
+\
+
+\textbf{实验}
+
+\
+
+我们使用两个指标来分析和比较协议的性能。它们为：
+
+\
+
+平均能耗：这个指标表示每个节点在网络中执行各种各样的功能时随时间平均消耗的能量，例如发送，接收，感知，和聚集数据等。
+
+\
+
+活跃节点的数量：这个指标表示网络的整体寿命。更重要的是，它给出了随着时间的推移网络的覆盖范围。
+
+\
+
+我们现在看看实现这些协议所使用的各种参数。协议的共同参数是被检测到的属性，温度。
+
+对TEEN协议的性能进行了两种模式的研究，一种是只针对硬门限(硬模式)，另一种是同时针对硬门限和软门限(软模式)。硬门限设定在最低和最高温度的平均值，100°F。软门限在我们的实验中设置为2°F。
+
+\subsection{\textbf{结果}}
+
+我们为每个协议和每个模式的TEEN协议运行了5个模拟器。从这5个试验读数，然后平均绘制。在任何特定的时间拥有一个较低的能耗度和更多的活跃节点，表示这是一个更有效的协议。
+
+\noindent
+\includegraphics[height=260, width=250]{4.eps}
+
+图4和图5显示了在主动模式下网络的行为。这种比较最初是在LEACH上实现[6]。考虑到修改后的无线传输能量模型在这里对其进行重复的说明。这四个协议[6]中，MTE(最小传输能量)的持续时间最长。然而，我们从图5中观察到只有1个或2个节点是真正处于活跃状态的。因此，LEACH和LEACH-C协议(LEACH协议的一个变种)在能量消耗和网络寿命方面可以被认为是最有效的协议。
+
+在图6和图7中，我们比较了这两个协议。我们看到，这两种模式的TEEN协议的性能远优于LEACH协议。如果集群是基于LEACH-C协议组成的，TEEN协议的性能预计将表现的更好。
+
+正如预期的那样，因为软门限的存在，软门限模式的TEEN协议性能远优于硬门限模式的TEEN协议。
+
+\noindent
+\includegraphics[height=260, width=250]{5.eps}
+
+\noindent
+\includegraphics[height=260, width=250]{6.eps}
+
+\noindent
+\includegraphics[height=260, width=250]{7.eps}
+
+\section{\textbf{总结}}
+
+在本文中，我们提出了一个正式的传感器网络分类。我们还引入了一个新的网络协议，反应式网络的TEEN协议。TEEN协议非常适合于时间关键的应用，在能量消耗和响应时间方面也非常高效。它还允许用户控制能耗和精度以适应具体的应用程序。
+
+\section*{Acknowledgment}
+
+我们要感谢Wendi Heinzelman的宝贵建议，以及允许我们使用她的LEACH延伸协议在NS上进行模拟实验。
 
 % Can use something like this to put references on a page
 % by themselves when using endfloat and the captionsoff option.
@@ -897,36 +438,19 @@ Computing and Networking(MOBICOM), pages 56–67, August
 M. Jiang, J. Li, and Y. C. Tay. “Cluster Based Routing Protocol”.
 Internet Draft, 1999.
 
+\bibitem{IEEEhowto:kopka}
+E. M. Royer and C.-K. Toh. “A Review of Current Routing
+Protocols for Ad-Hoc Mobile Wireless Networks”. In
+IEEE Personal Communications Magazine, pages 46–55,
+April 1999.
+
+\bibitem{IEEEhowto:kopka}
+UCB/LBNL/VINT. “Network Simulator-ns”. http://wwwmash.
+cs.berkeley.edu/ns.
 \end{thebibliography}
-
-
-
-% biography section
-% 
-% If you have an EPS/PDF photo (graphicx package needed) extra braces are
-% needed around the contents of the optional argument to biography to prevent
-% the LaTeX parser from getting confused when it sees the complicated
-% \includegraphics command within an optional argument. (You could create
-% your own custom macro containing the \includegraphics command to make things
-% simpler here.)
-%\begin{biography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
-% or if you just want to reserve a space for a photo:
-
-% You can push biographies down or up by placing
-% a \vfill before or after them. The appropriate
-% use of \vfill depends on what kind of text is
-% on the last page and whether or not the columns
-% are being equalized.
-
-%\vfill
-
-% Can be used to pull up biographies so that the bottom of the last one
-% is flush with the other column.
-%\enlargethispage{-5in}
 
 
 \end{CJK}
 % that's all folks
 \end{document}
-
 
